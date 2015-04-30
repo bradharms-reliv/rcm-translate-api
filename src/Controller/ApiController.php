@@ -52,17 +52,17 @@ class ApiController extends AbstractRestfulController
 
         $stripTagsFilter = new StripTags();
 
-        $translationParams = $this->params()->fromQuery();
-
         $namespace = (string) $this->params()->fromRoute('namespace');
 
-        $translationKeys = array_keys($translationParams);
+        $translationKeys = $this->params()->fromQuery();
+
+        //$translationKeys = array_keys($translationParams);
 
         $translations = [];
 
         foreach ($translationKeys as $message) {
 
-            $message = (string)$message;
+            $message = (string) urldecode($message);
             // Clean
             $message = $stripTagsFilter->filter($message);
             $message = $trimfilter->filter($message);

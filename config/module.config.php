@@ -24,7 +24,7 @@ return [
             'ViewJsonStrategy',
         ),
     ),
-    
+
     /**
      * Routes
      */
