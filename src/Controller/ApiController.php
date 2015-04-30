@@ -63,6 +63,7 @@ class ApiController extends AbstractRestfulController
         $locale = $site->getLocale();
 
         $trimfilter = new StringTrim();
+
         $stripTagsFilter = new StripTags();
 
         $translationParams = $this->params()->fromQuery();
