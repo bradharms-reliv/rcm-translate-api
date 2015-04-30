@@ -54,13 +54,11 @@ class ApiController extends AbstractRestfulController
 
         $namespace = (string) $this->params()->fromRoute('namespace');
 
-        $translationKeys = $this->params()->fromQuery();
-
-        //$translationKeys = array_keys($translationParams);
+        $translationParams = $this->params()->fromQuery();
 
         $translations = [];
 
-        foreach ($translationKeys as $message) {
+        foreach ($translationParams as $message) {
 
             $message = (string) urldecode($message);
             // Clean
