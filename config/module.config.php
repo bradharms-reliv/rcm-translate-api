@@ -17,6 +17,15 @@ return [
     ],
 
     /**
+     * View
+     */
+    'view_manager' => array(
+        'strategies' => array(
+            'ViewJsonStrategy',
+        ),
+    ),
+    
+    /**
      * Routes
      */
     'router' => [
@@ -24,9 +33,10 @@ return [
             'Reliv\RcmTranslateApi\Api' => [
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => [
-                    'route' => '/api/rcm-translate-api',
+                    'route' => '/api/rcm-translate-api[/:namespace]',
                     'defaults' => [
                         'controller' => 'Reliv\RcmTranslateApi\Controller\ApiController',
+                        'namespace' => 'default',
                     ],
                 ],
             ],

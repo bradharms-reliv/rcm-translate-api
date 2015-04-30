@@ -25,17 +25,6 @@ use Zend\View\Model\JsonModel;
  */
 class ApiController extends AbstractRestfulController
 {
-
-    /**
-     * getCurrentSite
-     *
-     * @return \Rcm\Entity\Site
-     */
-    protected function getCurrentSite()
-    {
-        return $this->serviceLocator->get('Rcm\Service\CurrentSite');
-    }
-
     /**
      * getTranslator
      *
@@ -59,14 +48,13 @@ class ApiController extends AbstractRestfulController
         // We ignore events so we don't get spammed.
         $translator->disableEventManager();
 
-        $site = $this->getCurrentSite();
-        $locale = $site->getLocale();
-
         $trimfilter = new StringTrim();
 
         $stripTagsFilter = new StripTags();
 
         $translationParams = $this->params()->fromQuery();
+
+        $namespace = (string) $this->params()->fromRoute('namespace');
 
         $translationKeys = array_keys($translationParams);
 
@@ -79,7 +67,7 @@ class ApiController extends AbstractRestfulController
             $message = $stripTagsFilter->filter($message);
             $message = $trimfilter->filter($message);
 
-            $translations[$message] = $translator->translate($message, 'default', $locale);
+            $translations[$message] = $translator->translate($message, $namespace);
         }
 
         return new JsonModel($translations);
