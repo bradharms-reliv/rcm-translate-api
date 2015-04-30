@@ -1,0 +1,29 @@
+{
+  "name": "reliv/rcm-translate-api",
+  "description": "Rcm Translate API - HTTP API for translations",
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "rcm",
+    "module",
+    "zf2"
+  ],
+  "minimum-stability": "stable",
+  "homepage": "https://github.com/reliv/",
+  "authors": [
+    {
+      "name": "James Jervis",
+      "email": "jjervis@relivinc.com",
+      "homepage": "https://github.com/reliv"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "zendframework/zendframework": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Reliv\\RcmTranslateApi\\": "src/"
+    }
+  }
+}
