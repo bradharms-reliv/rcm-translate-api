@@ -59,7 +59,6 @@ class ApiController extends AbstractRestfulController
         $translations = [];
 
         foreach ($translationParams as $message) {
-
             $message = (string) urldecode($message);
             // Clean
             $message = $stripTagsFilter->filter($message);
@@ -70,5 +69,4 @@ class ApiController extends AbstractRestfulController
 
         return new JsonModel($translations);
     }
-
 }
