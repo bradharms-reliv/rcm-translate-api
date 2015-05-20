@@ -18,9 +18,13 @@
     }
   ],
   "require": {
-    "php": ">=5.5",
+    "php": ">=5.4",
     "zendframework/zendframework": "2.*",
     "reliv/rcm": "0.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.6.*",
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
     "psr-4": {
