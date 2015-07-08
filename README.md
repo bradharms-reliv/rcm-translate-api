@@ -1,3 +1,4 @@
+DEPRECATED - Use rcm-i18n
 Rcm Translate API
 ====================
 
